@@ -1,0 +1,66 @@
+#include <stdio.h>
+
+// Função recursiva para da Torre: se move apenas para direita
+void MoverTorre(int casas) {
+    if (casas > 0) {
+        printf("Direita\n");
+        MoverTorre(casas - 1);
+    }
+}
+
+// Função recursiva para o Bispo: se move para cima direita
+void MoverBispo(int casas) {
+    if (casas > 0) {
+        printf("Cima, Direita\n");
+        MoverBispo(casas - 1);
+    }
+}
+
+// Função recursiva para a Rainha:se move para esquerda
+void MoverRainha(int casas) {
+    if (casas > 0) {
+        printf("Esquerda\n");
+        MoverRainha(casas - 1);
+    }
+}
+
+// Função para o Cavalo:se mover em forma de "L"
+void MoverCavalo() {
+    int PassosVertical = 2;
+    int PassosHorizontal = 1;
+
+    // Loop do movimento vertical
+    for (int i = 0; i < PassosVertical; i++) {
+        printf("Cima\n");
+
+        if (i == PassosVertical - 1) {
+            for (int j = 0; j < PassosHorizontal; j++) {
+                printf("Direita\n");
+            }
+        }
+    }
+}
+
+int main() {
+    // Movimento da Torre:
+    printf("Movimento da Torre:\n");
+    MoverTorre(5); 
+    printf("\n");
+
+    // Movimento do Bispo:
+    printf("Movimento do Bispo:\n");
+    MoverBispo(5); 
+    printf("\n");
+
+    // Movimento da Rainha:
+    printf("Movimento da Rainha:\n");
+    MoverRainha(8);  
+    printf("\n");
+
+    // Movimento do Cavalo:
+    printf("Movimento do Cavalo:\n");
+    MoverCavalo();
+    printf("\n");
+
+    return 0;
+}
